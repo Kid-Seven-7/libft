@@ -6,20 +6,24 @@
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/25 07:44:42 by jngoma            #+#    #+#             */
-/*   Updated: 2017/06/25 07:44:44 by jngoma           ###   ########.fr       */
+/*   Updated: 2017/07/20 13:03:27 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	int i;
+    int i;
 
+    if (s1 && s2)
+    {
 	i = 0;
 	while (s1[i] || s2[i])
 	{
-		if (s1[i] != s2[i])
-			return (0);
-		i++;
+	    if (s1[i] != s2[i])
+		return (0);
+	    i++;
 	}
 	return (1);
+    }
+    return (0);
 }

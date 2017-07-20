@@ -6,7 +6,7 @@
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/25 07:46:30 by jngoma            #+#    #+#             */
-/*   Updated: 2017/06/25 07:46:34 by jngoma           ###   ########.fr       */
+/*   Updated: 2017/07/20 13:13:08 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char			**ft_strsplit(char const *s, char c)
 	int		j;
 	int		parts;
 
+	if (s && c)
+	{
 	parts = ft_parts_nr(s, c);
 	if (!(map = (char**)malloc(sizeof(*map) * (parts + 1))))
 		return (NULL);
@@ -71,4 +73,6 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	map[j] = 0;
 	return (map);
+	}
+	return (NULL);
 }

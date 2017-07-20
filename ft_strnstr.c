@@ -6,7 +6,7 @@
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/25 07:46:16 by jngoma            #+#    #+#             */
-/*   Updated: 2017/06/25 07:46:17 by jngoma           ###   ########.fr       */
+/*   Updated: 2017/07/20 11:27:26 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 
 	i = 0;
 	j = 0;
-	if (!s2)
-		return ((char*)s1);
 	while (s1[i])
 	{
 		while (s2[j] == s1[i + j] && s2[j] && (i + j) < n)
