@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/25 07:45:04 by jngoma            #+#    #+#             */
-/*   Updated: 2017/07/20 14:19:13 by jngoma           ###   ########.fr       */
+/*   Created: 2017/07/21 11:31:08 by jngoma            #+#    #+#             */
+/*   Updated: 2017/07/21 12:40:18 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
 {
-    char	*dst;
-    int		i;
-    int		j;
+    t_list	*temp;
+    t_list	*new_lst;
 
-    if (s1 && s2)
+    new_lst = NULL;
+    new_lst = f(lst);
+    lst = lst->next;
+    new_lst->next = NULL;
+    temp = new_lst;
+    while (lst)
     {
-	dst = (char*)malloc(sizeof(*dst) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dst)
-	    return (NULL);
-	i = 0;
-	j = -1;
-	while (s1[++j])
-	    dst[i++] = s1[j];
-	j = -1;
-	while (s2[++j])
-	    dst[i++] = s2[j];
-	dst[i] = '\0';
-	return (dst);
+	temp->next = f(lst); 
+	lst = lst->next;
+	temp = temp->next;
     }
-   return (NULL);
+    temp = NULL;
+    return (new_lst);
 }

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/25 07:45:04 by jngoma            #+#    #+#             */
-/*   Updated: 2017/07/20 14:19:13 by jngoma           ###   ########.fr       */
+/*   Created: 2017/07/21 07:30:46 by jngoma            #+#    #+#             */
+/*   Updated: 2017/07/21 09:29:58 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-    char	*dst;
-    int		i;
-    int		j;
+    t_list	*current;
 
-    if (s1 && s2)
+    while (*alst)
     {
-	dst = (char*)malloc(sizeof(*dst) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dst)
-	    return (NULL);
-	i = 0;
-	j = -1;
-	while (s1[++j])
-	    dst[i++] = s1[j];
-	j = -1;
-	while (s2[++j])
-	    dst[i++] = s2[j];
-	dst[i] = '\0';
-	return (dst);
+	current = *alst;
+	*alst = (*alst)->next;
+	del(current->content, current->content_size);
+	free(current);
+	current = NULL;
     }
-   return (NULL);
 }
+
