@@ -22,4 +22,5 @@ char	**ft_malloc_2dchar(int y, int x)
 		grid[i] = (char *)ft_memalloc(sizeof(char) * x);
 		i++;
 	}
+	return (grid);
 }
