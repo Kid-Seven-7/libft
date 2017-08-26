@@ -12,17 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_defix(char *str, int n)
+char	*ft_strdefix(char *str, int c)
 {
 	char	*newstr;
 	int		i;
 	int		j;
 	int		len;
 
-	i = n - 1;
+	i = -1;
+	while (str[++i] != c);
 	j = -1;
 	len = ft_strlen(str);
-	newstr = (char *)malloc((len - i) + 1);
+	newstr = ft_strnew(len - i);
 	while (str[i++] != '\0')
 	{
 		newstr[++j] = str[i];
