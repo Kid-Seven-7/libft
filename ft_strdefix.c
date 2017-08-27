@@ -22,6 +22,7 @@ char	*ft_strdefix(char *str, int c)
 	i = -1;
 	while (str[++i] != c);
 	j = -1;
+	while (str[++i] != c);
 	len = ft_strlen(str);
 	newstr = ft_strnew(len - i);
 	while (str[i++] != '\0')
