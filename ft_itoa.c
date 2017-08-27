@@ -12,101 +12,28 @@
 
 #include "libft.h"
 
-static char		*ft_skip_sign(char *dst, char *str, int i)
+char	*ft_itoa(int n)
 {
-	size_t j;
-
-	j = 0;
-	while (j < ft_strlen(str))
-	{
-		dst[j] = str[i];
-		i--;
-		j++;
-	}
-	dst[j] = '\0';
-	return (dst);
-}
-
-static char		*ft_char_strrev(char c, char *str)
-{
+	char	*sval;
+	long	lval;
+	int		sign;
 	int		i;
-	size_t	j;
-	char	*dst;
 
-	dst = (char*)malloc(sizeof(*dst) * (ft_strlen(str) + 1));
-	i = 0;
-	while (str[i])
+	if (n == -2147483648)
+		return ("-2147483648");
+	lval = (n < 0) ? -(long)n : n;
+	sign = (n < 0) ? -1 : 1;
+	i = (sign == -1) ? 2 : 1;
+	while ((lval/=10) > 0)
 		i++;
-	j = 1;
-	i--;
-	if (c == '-')
+	sval = (char *)malloc(i);
+	sval[i] = '\0';
+	lval = (n < 0) ? -(long)n : n;
+	while (i-- + sign)
 	{
-		dst[0] = c;
-		while (j <= ft_strlen(str))
-		{
-			dst[j] = str[i];
-			i--;
-			j++;
-		}
-		dst[j] = '\0';
-		return (dst);
+		sval[i] = (lval % 10 < 10) ? lval % 10 + '0' : 0;
+		lval /= 10;
 	}
-	else
-		return (ft_skip_sign(dst, str, i));
-}
-
-static long		ft_nsize(long nb)
-{
-	long size;
-
-	size = 0;
-	if (nb < 0)
-	{
-		nb = -nb;
-		size = 1;
-	}
-	if (nb == 0)
-		return (1);
-	while (nb > 0)
-	{
-		size = size + 1;
-		nb = nb / 10;
-	}
-	return (size);
-}
-
-static char		*ft_nb_is_zero(char *v)
-{
-	v[0] = '0';
-	v[1] = '\0';
-	return (v);
-}
-
-char			*ft_itoa(int n)
-{
-	char	*v;
-	int		i;
-	char	s;
-	long	nb;
-
-	nb = n;
-	i = 0;
-	if (!(v = (char*)malloc(sizeof(*v) * (ft_nsize(nb) + 1))))
-		return (NULL);
-	s = '+';
-	if (nb < 0)
-	{
-		nb = -nb;
-		s = '-';
-	}
-	if (nb == 0)
-		return (ft_nb_is_zero(v));
-	while (nb > 0)
-	{
-		v[i] = nb % 10 + '0';
-		nb = nb / 10;
-		i++;
-	}
-	v[i] = '\0';
-	return (ft_char_strrev(s, v));
+	(i == 0) ? sval[i] = '-': 0;
+	return (sval);
 }
