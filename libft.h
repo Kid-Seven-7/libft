@@ -6,7 +6,7 @@
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/25 07:47:33 by jngoma            #+#    #+#             */
-/*   Updated: 2017/07/23 09:05:44 by jngoma           ###   ########.fr       */
+/*   Updated: 2017/11/13 09:51:58 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char				*ft_strshrink(char *s);
 char				*ft_strnew(size_t size);
 char				*ft_strdup(const char *s1);
 char				*ft_strtrim(const char *s);
-char 				*ft_strdefix(char *s, int n);
+char				*ft_strdefix(char *s, int n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strcat(char *s1, const char *s2);
@@ -79,7 +79,7 @@ char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strdesplit(char **grid, char *s, int c);
+char				*ft_strdesplit(char **grid, int c);
 char				*ft_strncpy(char *s1, const char *s2, size_t n);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
