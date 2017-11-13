@@ -6,7 +6,7 @@
 /*   By: jngoma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/25 07:47:33 by jngoma            #+#    #+#             */
-/*   Updated: 2017/11/13 09:51:58 by jngoma           ###   ########.fr       */
+/*   Updated: 2017/11/13 10:01:03 by jngoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <dirent.h>
 
 typedef struct		s_list
 {
